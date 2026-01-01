@@ -5,9 +5,9 @@
 const http = require('node:http')
 
 // creating the server
-const server = http.createServer((response,request)=>{
+const server = http.createServer((request,response)=>{
     response.statusCode = 200;
-    response.setHeader = ('Content-text','text/plain');
+    response.setHeader('Content-Type','text/plain');
     response.end('Hello World from Server')
 })
 
