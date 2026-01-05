@@ -1,13 +1,11 @@
-const fs = require('fs')
+const express = require('express')
 
-const content = 'This is the first file'
+const app = express();
 
-for(let i = 1 ; i<= 10 ; i++){
-    fs.writeFile('examples.text',content,(err)=>{
-    if(err){
-        console.log(err)
-        return
-    }
-    console.log('created file successfully')
+
+app.get('/',(req,res)=>{
+    res.send('Hello World')
 })
-}
+app.listen(4000,(req,res)=>{
+    console.log('Server running on port 3000')
+})
