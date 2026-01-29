@@ -1,21 +1,13 @@
-const express = require("express");
+const fs = require('fs')
 
-const app = express();
+const content = 'This is the first file'
 
-const userRouter = require('./routers/users.router')
-
-const PORT = 3000;
-
-
-app.use(express.json());
-
-app.get("/", (req, res) => {
-  res.send("Hello World from Express");
-});
-
-app.use('/users',userRouter)
-
-
-app.listen(PORT, () => {
-  console.log(`The server is running on http://localhost:${PORT}`);
-});
+for(let i = 1 ; i<= 10 ; i++){
+    fs.writeFile('examples.text',content,(err)=>{
+    if(err){
+        console.log(err)
+        return
+    }
+    console.log('created file successfully')
+})
+}
